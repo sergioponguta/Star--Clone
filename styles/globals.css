@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .HeaderButtonIcon {
+        @apply h-[36px] w-[36px]
+    } 
+}
