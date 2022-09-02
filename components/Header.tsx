@@ -9,10 +9,10 @@ import {
 import HeaderButton from "./HeaderButton";
 function Header() {
   return (
-    <div className="flex h-[72px] bg-black justify-between px-9">
-      <div className="flex items-center">
+    <header className="bg-[#0e0b13]">
+      <div className="flex">
         <img
-          className="h-12 w-18 object-contain mr-8"
+          className="h-12 w-18 mr-8"
           src="https://static-assets.bamgrid.com/product/starplus/images/logo.770970996243b55d166fbeb8b1a52b36.svg"
         />
         <div className="flex">
@@ -28,7 +28,7 @@ function Header() {
         <p className="font-normal text-[#f9f9f9] opacity-0 md:opacity-100">User</p>
         <img className="h-10 w-10" src="https://iili.io/6Fd4p9.png" />
       </div>
-    </div>
+    </header>
   );
 }
 
