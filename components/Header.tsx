@@ -1,31 +1,33 @@
 import {
-  HomeIcon,
-  MagnifyingGlassIcon,
-  PlusIcon,
-  EyeIcon,
-  FilmIcon,
-  ComputerDesktopIcon,
+  HomeIcon as HIcon,
+  MagnifyingGlassIcon as MIcon,
+  PlusIcon as PIcon,
+  EyeIcon as EIcon,
+  FilmIcon as FIcon,
+  ComputerDesktopIcon as CIcon,
 } from "@heroicons/react/24/solid";
 import HeaderButton from "./HeaderButton";
 function Header() {
   return (
-    <div>
-      <div className="flex">
-        <img className="h-12 w-20 object-contain" src="https://iili.io/6JcG9e.png"></img>
-        <HeaderButton title={"HOME"} icon={<HomeIcon className="HeaderButtonIcon" />} />
-        <HeaderButton
-          title={"SEARCH"}
-          icon={<MagnifyingGlassIcon className="HeaderButtonIcon" />}
+    <div className="flex h-[72px] bg-black justify-between px-9">
+      <div className="flex items-center">
+        <img
+          className="h-12 w-18 object-contain mr-8"
+          src="https://static-assets.bamgrid.com/product/starplus/images/logo.770970996243b55d166fbeb8b1a52b36.svg"
         />
-        <HeaderButton title={"WATCHLIST"} icon={<PlusIcon className="HeaderButtonIcon" />} />
-        <HeaderButton title={"ESPN"} icon={<EyeIcon className="HeaderButtonIcon" />} />
-        <HeaderButton title={"MOVIES"} icon={<FilmIcon className="HeaderButtonIcon" />} />
-        <HeaderButton
-          title={"SERIES"}
-          icon={<ComputerDesktopIcon className="HeaderButtonIcon" />}
-        />
+        <div className="flex">
+          <HeaderButton title={"HOME"} icon={<HIcon className="HeaderButtonIcon" />} />
+          <HeaderButton title={"SEARCH"} icon={<MIcon className="HeaderButtonIcon" />} />
+          <HeaderButton title={"WATCHLIST"} icon={<PIcon className="HeaderButtonIcon" />} />
+          <HeaderButton title={"ESPN"} icon={<EIcon className="HeaderButtonIcon" />} />
+          <HeaderButton title={"MOVIES"} icon={<FIcon className="HeaderButtonIcon" />} />
+          <HeaderButton title={"SERIES"} icon={<CIcon className="HeaderButtonIcon" />} />
+        </div>
       </div>
-      <div></div>
+      <div className="flex items-center space-x-3 cursor-pointer">
+        <p className="font-normal text-[#f9f9f9] opacity-0 md:opacity-100">User</p>
+        <img className="h-10 w-10" src="https://iili.io/6Fd4p9.png" />
+      </div>
     </div>
   );
 }

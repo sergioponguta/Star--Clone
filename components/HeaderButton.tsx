@@ -5,10 +5,10 @@ interface Props {
 
 function HeaderButton({ title, icon }: Props) {
   return (
-    <div className="flex">
+    <a className="flex items-center px-4 cursor-pointer text-[#f9f9f9] font-mono font-semibold text-sm space-x-2.5 group">
       <div>{icon}</div>
-      <div>{title}</div>
-    </div>
+      <span className="span">{title}</span>
+    </a>
   );
 }
 
