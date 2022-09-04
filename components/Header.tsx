@@ -9,7 +9,7 @@ import {
 import HeaderButton from "./HeaderButton";
 function Header() {
   return (
-    <header className="bg-[#0e0b13]">
+    <header className="bg-black">
       <div className="flex">
         <img
           className="h-12 w-18 mr-8"

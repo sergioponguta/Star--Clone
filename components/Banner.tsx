@@ -1,24 +1,19 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { baseUrl } from "../constants/movie";
-import { Movie } from "../typings";
+import useSWR from "swr";
 
 interface Props {
-  starOriginals: Movie[];
+  bannerPath: string;
 }
 
-function Banner({ starOriginals }: Props) {
-  const [movie, setMovie] = useState<Movie | null>(null);
-
-  useEffect(() => {
-    setMovie(starOriginals[Math.floor(Math.random() * starOriginals.length)]);
-  }, [starOriginals]);
+function Banner({ bannerPath }: Props) {
+  const fetcher = (url: RequestInfo | URL) => fetch(url).then((res) => res.json());
+  const { data } = useSWR(`/api/readFilesBanners?image_type=banners`, fetcher);
 
   return (
     <div className="flex">
-      <div className="-z-10 h-[75vh] w-screen">
-        <Image src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`} layout={"fill"} />
-      </div>
+      <div className="-z-10 h-[45vh] w-screen"></div>
+      {bannerPath && <Image src={bannerPath?.replaceAll("\\", "/")} layout="fill" />}
     </div>
   );
 }
