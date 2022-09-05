@@ -25,7 +25,7 @@ function Header() {
         </div>
       </div>
       <div className="flex items-center space-x-3 cursor-pointer">
-        <p className="font-normal text-[#f9f9f9] opacity-0 md:opacity-100">User</p>
+        <p className="font-normal text-[#f9f9f9] opacity-0 lg:opacity-100">User</p>
         <img className="h-10 w-10" src="https://iili.io/6Fd4p9.png" />
       </div>
     </header>

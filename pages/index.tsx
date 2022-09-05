@@ -14,20 +14,15 @@ interface Props {
 const Home = () => {
   const fetcher = (url: RequestInfo | URL) => fetch(url).then((res) => res.json());
   const { data: dataBanner } = useSWR(`/api/readFiles?imageType=banners`, fetcher);
+  const { data: dataOverBanner } = useSWR(`/api/readFiles?imageType=over_banner`, fetcher);
   const { data: dataHoverable } = useSWR(`/api/readFiles?imageType=hoverable_thumbnail`, fetcher);
 
-  const [pathItemHovered, setPathItemHovered] = useState<string>("");
-  const [hoverableThmbnailsPaths, setHoverableThmbnailsPaths] = useState<string[]>([]);
-
-  useEffect(() => {
-    if (dataBanner) {
-      setPathItemHovered(dataBanner[4]);
-    }
-  }, [dataBanner]);
+  const [hoverableThumbnailsPaths, setHoverableThumbnailsPaths] = useState<string[]>([]);
+  const [itemHovered, setItemHovered] = useState<number>(0);
 
   useEffect(() => {
     if (dataHoverable) {
-      setHoverableThmbnailsPaths(dataHoverable);
+      setHoverableThumbnailsPaths(dataHoverable);
     }
   }, [dataHoverable]);
 
@@ -39,11 +34,18 @@ const Home = () => {
       </Head>
       {/* Header */}
       <Header />
-      <main className="relative mt-[70px] pl-5 pb-24 lg:space-y-24 lg:pl-16">
+      <main className="relative mt-[70px] pl-5 pb-24 lg:space-y-24 lg:pl-20">
         {/* Banner */}
-        <Banner bannerPath={pathItemHovered} />
+        <Banner
+          bannersPaths={dataBanner}
+          overBannerPaths={dataOverBanner}
+          hoveredItem={itemHovered}
+        />
         <section className="">
-          <RowHoverableThumbnail thumbnailsPaths={hoverableThmbnailsPaths} />
+          <RowHoverableThumbnail
+            hoverableThumbnailsPaths={hoverableThumbnailsPaths}
+            setItemHoveredIndex={setItemHovered}
+          />
           {/* <RowHoverableThumbnail /> */}
           {/* Row Hoverable Banner */}
           {/* Row */}
